@@ -1,0 +1,43 @@
+*
+{
+    box-sizing: border-box;
+}
+body
+{
+    margin: 0px;
+    height: 100%;
+}
+.headerContent
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px 0;
+    background-color: #FFFFFF;
+    align-items: center;
+
+}
+.headerContentItem
+{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    align-items: center;
+}
+.Headertext
+{
+    font: normal normal bold 22px/25px Montserrat ;
+    font-family: "Montserrat" ,sans-serif;
+    text-transform:uppercase;
+    color: #008CFF;
+    padding-left: 5px;
+}
+.logo-text1
+{
+    color: #42515F;
+}
+.EmployeeIcon
+{
+    border:0px solid #42515F;
+    width: 43px;
+}
