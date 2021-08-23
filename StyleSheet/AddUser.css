@@ -101,10 +101,14 @@ label
     padding: 12px 12px 12px 0px;
 }
 /* text Area and text field style */
-#Name,textarea
+#Name,textarea,#phone
 {
     width: 100%;
     padding : 12px;
     border: 1px solid #BDBDBD;
     border-radius: 2px;
+}
+textarea
+{
+    height: 100px;
 }
