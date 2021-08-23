@@ -140,3 +140,39 @@ select
     width: 100%; 
     cursor: pointer;
 }
+
+/* Styling buttons */
+.buttonParent
+{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+    padding-top: 30px;
+    
+}
+.button
+{
+    font-family: Roboto;
+    font-size: 20px;
+    color: #42515F;
+    background: #E2E2E2 0% 0% no-repeat padding-box;
+    border: 1px solid #969696;
+    border-radius: 5px;
+    min-width: 140px;
+    font-weight: 400;
+    padding:7px 7px;
+    cursor: pointer;
+}
+.submitButton
+{
+    margin-right: 50px;
+}
+.submitButton:hover
+{
+    background-color:#008CFF;
+}
+.resetButton:hover
+{
+    background-color: gray;
+}
