@@ -64,5 +64,33 @@ window.addEventListener('DOMContentLoaded',(event)=>{
          }
         }
      });
-    
 });
+
+const save=()=>
+{
+    try{
+        let userData=createAddressBook();
+    }
+    catch(e)
+    {
+        alert(e);
+    }
+}
+const createAddressBook=()=>
+{
+    let userData=new UserDetails();
+    userData.name=getInputValueById('#Name');
+    userData.phoneNumber=getInputValueById('#phone');
+    userData.address=getInputValueById('#address');
+    userData.city=getInputValueById('#city');
+    userData.state=getInputValueById('#state');
+    userData.zipCode=getInputValueById('#Zipcode');
+    alert(userData.toString());
+    return userData;
+}
+// geting the value when id is passed
+const getInputValueById=(id)=>
+{
+    let value=document.querySelector(id).value;
+    return value;
+}

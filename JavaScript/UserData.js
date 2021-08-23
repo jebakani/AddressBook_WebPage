@@ -43,7 +43,7 @@ class UserDetails
         }
 
         toString() {
-            return 'Name:' + this.firstName + '\nAddress:' + this.address + '\ncity:' + this.city + '\nstate:' + this.state + '\nzipcode:' + this.zipCode + '\nphoneNumber:' + this.phoneNumber;
+            return 'Name:' + this.name + '\nAddress:' + this.address + '\ncity:' + this.city + '\nstate:' + this.state + '\nzipcode:' + this.zipCode + '\nphoneNumber:' + this.phoneNumber;
         }
     }
     //check the validity of the variables by passing the value and pattern
