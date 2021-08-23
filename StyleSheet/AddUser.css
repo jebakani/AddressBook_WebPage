@@ -41,3 +41,70 @@ body
     border:0px solid #42515F;
     width: 43px;
 }
+/* Adding form header and first field */
+.FormBody
+{
+    min-height: calc(100% - 80px);
+    background-color: #F7F7F7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formContent
+{
+    border-radius: 8px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #F5F5F5;
+    width: 65%;
+    margin: 15px 0;
+}
+.formHeader
+{
+    font: normal normal normal 28px/37px Roboto;
+    padding:20px;
+    text-transform: capitalize;
+    color: #FFFFFF;;
+    background-color:#008CFF; 
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+/* For name field */
+.formBody
+{
+    padding: 40px 65px;
+}
+/* Style of each row */
+.rowContent
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    align-items: flex-start;
+    padding-top: 10px;
+}
+/* Text label style */
+.text
+{
+    font-size:  18px ;
+    font-family :Roboto;
+    color: #42515F;
+}
+/* Label minimum width */
+.label
+{
+    min-width: 140px;
+}
+label
+{
+    padding: 12px 12px 12px 0px;
+}
+/* text Area and text field style */
+#Name,textarea
+{
+    width: 100%;
+    padding : 12px;
+    border: 1px solid #BDBDBD;
+    border-radius: 2px;
+}
