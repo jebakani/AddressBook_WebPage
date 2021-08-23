@@ -4,7 +4,7 @@ class UserDetails
         //creating getter setter method
         get name() { return this._name; }
         set name(name) {
-            let pattern = RegExp("^[A-Z]{1}[a-z]{3,}$")
+            let pattern = RegExp("^[A-Z]{1}[a-zA-Z\\s]{2,}$")
             if (pattern.test(name)) {
                 this._name = name;
             }
@@ -15,26 +15,17 @@ class UserDetails
     
         get address() { return this._address; }
         set address(address) {
-            if (CheckValidity(address, "^[A-Za-z]{4,}$")) {
-                this._address = address;
-            }
-            else {
-                throw 'Address Should have atleast four char';
-            }
+           this._address=address;
         }
 
         get city() { return this._city; }
         set city(city) {
-            if (CheckValidity(city, "^[a-z]{4,}$")) { this._city = city; }
-            else
-                throw 'city should be atleast 4 char';
+             this._city = city; 
         }
     
         get state() { return this._state; }
         set state(state) {
-            if (CheckValidity(state, "^[A-Za-z \\s]{4,}")) { this._state = state; }
-            else
-                throw 'state should be atleast 4 char';
+             this._state = state; 
         }
     
         get zipCode() { return this._zipCode; }

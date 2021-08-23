@@ -25,13 +25,13 @@
                 <div class="formBody">
                     <div class="rowContent">
                         <label class="label text">Full Name</label>
-                        <input type="text" id="Name" name="Name" placeholder="your name is ...">
                         <error-output class="text-error" for="Name"></error-output>
+                        <input type="text" id="Name" name="Name" placeholder="your name is ...">
                     </div>
                     <div class="rowContent">
                         <label class="label text">Phone Number</label>
-                        <input type="tel" id="phone" name="Phone" placeholder="Phone Number">
                         <error-output class="phoneNumber" for="phone"></error-output>
+                        <input type="tel" id="phone" name="Phone" placeholder="Phone Number">
                     </div>
                     <div class="rowContent">
                         <label class="label text">Address</label>
@@ -64,6 +64,7 @@
                         </div>
                         <div class="rowContent">
                             <label class="label text">Zipcode</label>
+                            <error-output class="zipCode" for="Zipcode"></error-output>
                             <input type="text" id="Zipcode" name="Zipcode">
                         </div>
                     </div>
@@ -76,4 +77,5 @@
             </form>
         </div>
         <script src="../JavaScript/UserData.js"></script>
+        <script src="../JavaScript/AddData.js"></script>
     </body>

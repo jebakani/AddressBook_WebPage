@@ -102,7 +102,7 @@ label
     padding: 12px 12px 12px 0px;
 }
 /* text Area and text field style */
-#Name,textarea,#phone
+#Name,textarea,#phone,#Zipcode
 {
     width: 100%;
     padding : 12px;
@@ -176,4 +176,10 @@ select
 .resetButton:hover
 {
     background-color: gray;
+}
+error-output
+{
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
 }
