@@ -108,3 +108,23 @@ function UpdateAndSaveData(userData)
     }
     localStorage.setItem("AddressBook",JSON.stringify(AddressList));
 }
+Reset=()=>
+{
+    setTextValue('#Name','');
+    setTextValue('#phone','');
+    setTextValue('#Zipcode','');
+    setValue("#address",'');
+    setValue("#city",'Select City');
+    setValue("#state",'Select State');
+}
+//setting text value text field
+const setTextValue=(id,value)=>
+{
+   let element=document.querySelector(id);
+   element.textContent=value;
+}
+const setValue=(id,value)=>
+{
+    let ElementValue=document.querySelector(id);
+    ElementValue.value=value;
+}
