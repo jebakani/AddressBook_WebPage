@@ -150,3 +150,7 @@ td img:first-child
 {
     margin-right: 10px;
 }
+.userTable
+{
+    width: 100%;
+}
