@@ -70,6 +70,7 @@ const save=()=>
 {
     try{
         let userData=createAddressBook();
+        UpdateAndSaveData(userData);
     }
     catch(e)
     {
@@ -93,4 +94,17 @@ const getInputValueById=(id)=>
 {
     let value=document.querySelector(id).value;
     return value;
+}
+function UpdateAndSaveData(userData)
+{
+    let AddressList=JSON.parse(localStorage.getItem('AddressBook'));
+    if(AddressList!=null)
+    {
+        AddressList.push(userData);
+    }
+    else
+    {
+        AddressList=[userData];
+    }
+    localStorage.setItem("AddressBook",JSON.stringify(AddressList));
 }
