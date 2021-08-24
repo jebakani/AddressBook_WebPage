@@ -62,14 +62,27 @@ body
 }
 .formHeader
 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     font: normal normal normal 28px/37px Roboto;
-    padding:20px;
     text-transform: capitalize;
-    color: #FFFFFF;;
-    background-color:#008CFF; 
     text-align: center;
+    color: #FFFFFF;;
+    padding:20px;
+    background-color:#008CFF; 
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+}
+a
+{
+    margin-left: 10em;
+    padding-top: 8px;
+}
+.formHeader > a >img
+{
+    border-radius: 50%;
+    width: 30px;
 }
 /* For name field */
 .formBody
