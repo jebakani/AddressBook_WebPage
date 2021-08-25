@@ -154,3 +154,7 @@ td img:first-child
 {
     width: 100%;
 }
+td img
+{
+    cursor: pointer;
+}

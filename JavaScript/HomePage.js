@@ -28,11 +28,22 @@ const creatInnerHtml=()=>
                 <td>${userData._zipCode}</td>
                 <td>${userData._phoneNumber}</td>
                 <td>
-                    <img  alt="delete" src="../Asserts/delete-black-18dp.svg">
-                    <img  alt="edit" src="../Asserts/create-black-18dp.svg">
+                    <img id=${userData._name} onclick="remove(this)" alt="delete" src="../Asserts/delete-black-18dp.svg">
+                    <img id=${userData._name} onclick="edit(this)"alt="edit" src="../Asserts/create-black-18dp.svg">
                 </td>
             </tr>
      `;
     document.querySelector('#userTable').innerHTML=innerHtml;
     }
+}
+// deleting the data from local storage
+const remove=(node)=>
+{
+    let userDetail=addressBookList.find(data=>data._name == node.id);
+    if(!userDetail) return;
+    let index=addressBookList.map(x=>x._name).indexOf(userDetail._name);
+    addressBookList.splice(index,1);
+    localStorage.setItem('AddressBook',JSON.stringify(addressBookList));
+    document.querySelector('.userCount').textContent=addressBookList.length;
+    creatInnerHtml();
 }
