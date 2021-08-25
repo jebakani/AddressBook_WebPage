@@ -1,3 +1,5 @@
+let isUpdate=false;
+let addressBookObj={};
 window.addEventListener('DOMContentLoaded',(event)=>{
 
     const name=document.querySelector('#Name');
@@ -64,51 +66,98 @@ window.addEventListener('DOMContentLoaded',(event)=>{
          }
         }
      });
+     checkForUpdate();
 });
+// Check if it is update or new form
+const checkForUpdate = () => {
+    const userDetail = localStorage.getItem('editEmp');
+    isUpdate = userDetail ? true : false;
+    if (!isUpdate) return;
+    addressBookObj = JSON.parse(userDetail);
+    setForm();
+}
 
-const save=()=>
-{
-    try{
-        let userData=createAddressBook();
-        UpdateAndSaveData(userData);
+const save = () => {
+    event.preventDefault();
+    event.stopPropagation();
+    try {
+        setAddressBookObject();
+        createAndUpdateStorage();
+        Reset();
+        window.location.replace(siteProperties.home_Page);
     }
-    catch(e)
-    {
+    catch (e) {
         alert(e);
     }
 }
-const createAddressBook=()=>
+const setAddressBookObject=()=>
+{
+    addressBookObj._name=getInputValueById('#Name');
+    addressBookObj._phoneNumber=getInputValueById('#phone');
+    addressBookObj._address=getInputValueById('#address');
+    addressBookObj._city=getInputValueById('#city');
+    addressBookObj._state=getInputValueById('#state');
+    addressBookObj._zipCode=getInputValueById('#Zipcode');
+}
+
+const createAndUpdateStorage=()=>
+{
+    let addressList=JSON.parse(localStorage.getItem('AddressBook'));
+    if(addressList)
+    {
+        let userData=addressList.find(x=>x._id==addressBookObj._id);
+        if(!userData)
+        {
+            addressList.push(createUserData());
+        }
+        else
+        {
+            const index=addressList.map(emp=>emp._id).indexOf(userData._id);
+            addressList.splice(index,1,createUserData(userData._id));
+        }
+    }
+    else
+    {
+        addressList=[createUserData()];
+    }
+    localStorage.setItem("AddressBook",JSON.stringify(addressList));
+}
+const createNewUserId=()=>
+{
+    let userId=localStorage.getItem("UserId");
+    userId=!userId?1:(parseInt(userId)+1).toString();
+    localStorage.setItem("UserId",userId);
+    return userId;
+}
+
+const createUserData=(id)=>
 {
     let userData=new UserDetails();
-    userData.name=getInputValueById('#Name');
-    userData.phoneNumber=getInputValueById('#phone');
-    userData.address=getInputValueById('#address');
-    userData.city=getInputValueById('#city');
-    userData.state=getInputValueById('#state');
-    userData.zipCode=getInputValueById('#Zipcode');
-    alert(userData.toString());
+    if(!id) userData.id=createNewUserId();
+    else userData.id=id;
+    setAddressBook(userData);
     return userData;
 }
+//method to set the value to employee payRoll object
+const setAddressBook = (userData) => {
+    
+    userData.name=addressBookObj._name
+    userData.phoneNumber=addressBookObj._phoneNumber
+    userData.address=addressBookObj._address
+    userData.city=addressBookObj._city
+    userData.state= addressBookObj._state
+    userData.zipCode=addressBookObj._zipCode
+    alert(userData.toString());
+}
+
 // geting the value when id is passed
 const getInputValueById=(id)=>
 {
     let value=document.querySelector(id).value;
     return value;
 }
-function UpdateAndSaveData(userData)
-{
-    let AddressList=JSON.parse(localStorage.getItem('AddressBook'));
-    if(AddressList!=null)
-    {
-        AddressList.push(userData);
-    }
-    else
-    {
-        AddressList=[userData];
-    }
-    localStorage.setItem("AddressBook",JSON.stringify(AddressList));
-}
-Reset=()=>
+
+const Reset=()=>
 {
     setTextValue('#Name','');
     setTextValue('#phone','');
@@ -127,4 +176,27 @@ const setValue=(id,value)=>
 {
     let ElementValue=document.querySelector(id);
     ElementValue.value=value;
+}
+const setForm = () => {
+    setValue('#Name', addressBookObj._name);
+ 
+    setValue("#phone", addressBookObj._phoneNumber);
+    setValue('#Zipcode', addressBookObj._zipCode);
+    setValue("#address", addressBookObj._address);
+    setValue("#city", addressBookObj._city);
+    setValue("#state", addressBookObj._state);
+}
+// check the selected value
+const setSelectedValue = (propertyValue, value) => {
+    let allData = document.querySelectorAll(propertyValue);
+    allData.forEach(item => {
+        if (Array.isArray(value)) {
+            if (value.includes(item.value)) {
+                item.checked = true;
+            }
+        }
+        else if (item.value == value) {
+            item.checked = true;
+        }
+    });
 }

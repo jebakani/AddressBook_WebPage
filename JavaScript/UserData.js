@@ -1,6 +1,14 @@
 // Creating the User Detail class  That holds the name, address, city , state , zipcode and phone number as object
 class UserDetails
 {
+    get id()
+    {
+        return this._zipCode;
+    }
+    set id(id)
+    {
+       this._id=id;
+    }
         //creating getter setter method
         get name() { return this._name; }
         set name(name) {
