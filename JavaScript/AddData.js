@@ -77,7 +77,7 @@ const checkForUpdate = () => {
     setForm();
 }
 
-const save = () => {
+const save = (event) => {
     event.preventDefault();
     event.stopPropagation();
     try {
